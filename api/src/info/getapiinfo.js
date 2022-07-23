@@ -3,7 +3,8 @@ const { YOUR_API_KEY } = process.env
 
 const getapiinfo = async ()=>{
     const apiurl= await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`)
-    const apiinfo=apiurl.data.map(e=>{
+    
+    const apiinfo=await apiurl.data.map(e=>{
         return{
             id:e.id,
 
@@ -20,10 +21,12 @@ const getapiinfo = async ()=>{
             image: e.image.url,
         }
     })
+    // console.log(apiinfo)
     return apiinfo
 }
 
 module.exports={getapiinfo}
+
 /* [ ] Los campos mostrados en la ruta principal para cada raza (imagen, nombre y temperamento)
 [ ] Altura
 [ ] Peso

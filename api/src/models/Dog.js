@@ -31,7 +31,8 @@ module.exports = (sequelize) => {
       defaultvalue:true,
       allowNull:false
     }
-  });
+  },
+  {timestamps: false});
 };
 /* ID *
 Nombre *

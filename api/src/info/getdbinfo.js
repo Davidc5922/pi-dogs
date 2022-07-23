@@ -1,9 +1,9 @@
-const {Dog , temperament}=require('../db')
+const {Dog , Temperament}=require('../db')
 
 const getdbinfo = async ()=>{
     return await Dog.findAll({
         include:{
-            model:temperament,
+            model:Temperament,
             attibutes:['name'],
             throught:{
                 attibutes:[]
