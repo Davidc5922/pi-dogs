@@ -1,11 +1,14 @@
 const { Router } = require('express');
+const { Dog, Temperament }=require('../db')
 const dogs = require('../rutas/dogs')
+const temperaments = require('../rutas/temperaments')
+
 
 const express = require('express')
 
 
-//  const { getAll }=require('../info/getAllDogs')
-const { getapiinfo }= require('../info/getapiinfo')
+const { getAllDogs }=require('../info/getAllDogs')
+// const { getapiinfo }= require('../info/getapiinfo')
 
 
 require('dotenv').config();
@@ -20,31 +23,44 @@ const router = Router();
 router.use(express.json())
 
 router.use('/dogs',dogs)
+router.use('/temperaments',temperaments)
 
 
-// const axios = require('axios')
-// const {Dog , temperament}=require('../db')
-// const { YOUR_API_KEY } = process.env
 
-// router.get('/dogs',async(req, res,next) => {
-//     try {
-//         let listDogs=getapiinfo();
-//         console.log(listDogs)
-//         res.json(listDogs)
-//     } catch (e) {
-//         next(e);
-//     }
+
+// router.post('/dogs', async (req, res) => {
+//     let {
+//         name,
+//         heightMin,
+//         heightMax,
+//         weightMin,
+//         weightMax,
+//         life_span,
+//         image,
+//         temperaments,
+
+//     } = req.body
+//     let height=`${heightMin}-${heightMax}`
+//     let weight=`${weightMin}-${weightMax}`
+//     let DogCreated = await Dog.create({
+//         name,
+//         height,
+//         weight,
+//         life_span: life_span + ' años',
+//         image,
+
+//     })
+//     let temperamentDB = await Temperament.findAll({
+//         where: {
+//             name: temperaments
+//         }
+//     })
+
+
+//     DogCreated.addTemperament(temperamentDB)
+//     res.status(200).send('Raza creada')
+
 // })
-
-
-// router.get('/dogs',async (req, res) => {
-//     try {
-//         let listDogs=getAll();
-//         res.status(200).send(listDogs)
-//     } catch (e) {
-        
-//     }
-// });
 
 
 module.exports = router;
