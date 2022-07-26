@@ -24,6 +24,20 @@ router.get('/:raceId',async(req, res,next) => {
            
     } 
 })
+router.delete('/:Id',async(req, res,next) => {
+    const { Id } = req.params;
+    console.log(Id)
+    try {
+        if (Id) {
+          await Dog.destroy({
+            where: { id: Id },
+          });
+          res.send({ msg: "perro eliminado" });
+        }
+      } catch (e) {
+        console.log(e);
+      }
+})
 
 router.get('*',async(req, res,next) => {
     try {
@@ -73,12 +87,12 @@ router.post('*', async (req, res,next) => {
         image,
         temperaments,
     })
-    // let temperamentDB = await Temperament.findAll({
-    //     where: {
-    //         name: temperaments
-    //     }
-    // })
-    // DogCreated.addTemperament(temperamentDB)
+    let temperamentDB = await Temperament.findAll({
+        where: {
+            name: temperaments
+        }
+    })
+    DogCreated.addTemperament(temperamentDB)
     res.status(200).send("perro creado") 
     } catch (e) {
         next(e);
