@@ -9,20 +9,17 @@ import { useDispatch, useSelector } from 'react-redux'
 export default function LandingPage(){
     const allDogs = useSelector((state) => state.dogs)
     return(
-        <div className='LandingPage'>
+        <div >
+            <h1>Hola</h1>
             {
                 allDogs.map(e=>{
                     return (
-                         <Card 
-                    image={e.image}
-                    name={e.name}
-                    temperaments={e.temperaments}
-                    weight={e.weight}
-                    height={e.height}
-                    
-                    
-                    />)
-                   
+                        <div>
+                            <h1>hola</h1>
+                         </div>   
+                        
+                    )
+                       
                 })
             }
         </div>
@@ -30,3 +27,14 @@ export default function LandingPage(){
 
 
 }
+
+{/* 
+<Card 
+                    image={e.image}
+                    name={e.name}
+                    temperaments={e.temperaments}
+                    weight={e.weight}
+                    height={e.height}
+                    
+                    
+                    />) */}
