@@ -1,9 +1,23 @@
+import {GETDOGS } from '../actions'
+
+const initialState = {
+    dogs:[],
+    allDogs:[],
+    Temperaments:[],
+    detatil:[],
+    loader:true
+}
+
 function rootReducer (state = initialState,action){
     switch(action.type){
-        case 1:
-        case 2:
-        case 3:
-
+        case GETDOGS:
+            return{
+                ...state,
+                dogs:action.payload,
+                allDogs:action.payload,
+                detatil:[]
+            }
+        
         default:
             return false
     }
