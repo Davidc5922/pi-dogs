@@ -3,7 +3,7 @@ import React from "react";
 
 export default function card({image, name, temperaments, weight,height}){
     return(
-        <div className="Card">
+        <>
             <img src={image} />
             <div>
                 <p>{name}</p>
@@ -11,6 +11,6 @@ export default function card({image, name, temperaments, weight,height}){
                 <p>{weight}</p>
                 <p>{height}</p>
             </div>
-        </div>
+        </>
     )
 }
