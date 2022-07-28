@@ -48,7 +48,7 @@ router.get('*',async(req, res,next) => {
             dog.length ?
                 res.status(200).send(dog) :
                 res.send([{
-                    name: `la raza ${name} no esta en la base de datos.`, id: '', temperaments: 'Puede crearla en nuestro "Creador de Perros"', image: 'https://e7.pngegg.com/pngimages/741/723/png-clipart-adult-white-and-brown-jack-russell-terrier-using-magnifying-glass-search-and-rescue-dog-puppy-dog-training-pet-pets-animals-dog-like-mammal.png'
+                    name: `la raza ${name} no esta en la base de datos.`, id: ' ', temperaments: 'Puede crearla en nuestro "Creador de Perros"', image: 'https://e7.pngegg.com/pngimages/741/723/png-clipart-adult-white-and-brown-jack-russell-terrier-using-magnifying-glass-search-and-rescue-dog-puppy-dog-training-pet-pets-animals-dog-like-mammal.png'
                 }]);
         }else{
         res.status(200).send(listDogs)}

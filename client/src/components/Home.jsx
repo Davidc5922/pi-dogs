@@ -23,9 +23,12 @@ export default function Home(){
         <div className='Home'>
             <nav className='nav' >
                 <ul>
-                  <li> <Link to="/Home">lista de perros</Link> </li>
-                  <li> <Link to="/dogs">crear un perro</Link> </li>
-                  <li> <Link to="/home/:id">detalles sobre los perros</Link> </li>
+                  <li> <Link to='/home'><button id="home" className="buttonHome1">Inicio</button></Link></li>
+                  <li> 
+                    <Link to='/dogs'>
+                    <button className="buttonHome1">Crear Perro</button>
+                     </Link>
+                 </li>
                   <li> <SearchBar /></li>
                 </ul>
                 {allDogs.map((e) => {
@@ -38,7 +41,10 @@ export default function Home(){
                                         temperaments={e.temperaments}
                                         /* weight={e.weight}
                                         height={e.height} */
-                                       
+                                        weight_Min={e.weight_Min}
+                                        weight_Max={e.weight_Max}
+                                        height_Min={e.height_Min}
+                                        height_Max={e.heigh_Max}
                                         key={e.id}
                                     />
                                 </Link>

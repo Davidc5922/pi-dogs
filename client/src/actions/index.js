@@ -6,6 +6,8 @@ export const GETDETAIL = 'GETDETAIL'
 export const SEARCHFAIL = 'SEARCHFAIL'
 export const DELETEDDOG = 'DELETEDDOG'
 export const SEARCH_FAIL = 'SEARCH_FAIL'
+export const CLEAN_DOG = 'CLEAN_DOG'
+export const CLEANER = 'CLEANER'
 
 
 //export const GET_COUNTRY= 'GET_COUNTRY'
@@ -15,15 +17,17 @@ export function getDogs(name) {
     return async function (dispatch) {
         try {
             if (name) {
-                return axios.get('http://localhost:3001/dogs?name=' + name)
+                return await axios.get('http://localhost:3001/dogs?name=' + name)
                     .then(res => dispatch({ type: GETDOGS, payload: res.data }))
-                    .catch(err => dispatch({ type: GETDOGS, payload: err.data }))
+                /*     .catch(err => dispatch({ type: GETDOGS, payload: err.data })) */
             }
-            let json = await axios.get('http://localhost:3001/dogs', {})
+                let json = await axios.get('http://localhost:3001/dogs', {})
             return dispatch({
                 type: GETDOGS,
                 payload: json.data
             })
+            
+            
         } catch (err) {
             var fail = axios.get('http://localhost:3001/dogs?name=' + name)
                 .then(res => res.data)
@@ -86,5 +90,17 @@ export function deleteDog(id) {
     };
 }
 
+export function cleanDog() {
+    return {
+        type: CLEAN_DOG,
+        payload: {},
+    };
+}
 
+export function cleaner() {
+    return {
+        type: CLEANER,
+        payload: {},
+    };
+}
 

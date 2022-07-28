@@ -1,11 +1,11 @@
-import {GETDOGS,GETTEMPERAMENTS,GETDETAIL,DELETEDDOG,SEARCH_FAIL } from '../actions'
+import {GETDOGS,GETTEMPERAMENTS,GETDETAIL,DELETEDDOG,SEARCH_FAIL,CLEANER,CLEAN_DOG  } from '../actions'
 //
 
 const initialState = {
     dogs:[],
     allDogs:[],
     Temperaments:[],
-    detatil:[],
+    detail:[],
 
     loader:true
 }
@@ -41,6 +41,17 @@ function rootReducer (state = initialState,action){
             return {
                 ...state,
             }
+
+            case CLEANER:
+                return {
+                    ...state,
+                    details: {},
+                };
+            case CLEAN_DOG:
+                return {
+                    ...state,
+                    loader: true,
+                };    
     
         default:
             return state

@@ -10,9 +10,14 @@ const getapiinfo = async ()=>{
 
             name:e.name,
 
-            height:e.height,
+            height_Min:e.height.metric.split("-")[0] && e.height.metric.split("-")[0]!=="null"?e.height.metric.split("-")[0]:Math.round(e.height.imperial.split("-")[0]*0.001).toString(),
 
-            weight:e.weight,
+            heigh_Max:e.height.metric.split("-")[1] && e.height.metric.split("-")[1]!=="null"?e.height.metric.split("-")[1]:Math.round(e.height.imperial.split("-")[1]*0.001).toString(),
+
+            weight_Min:e.weight.metric.split("-")[0] && e.weight.metric.split("-")[0]!=="null"?e.weight.metric.split("-")[0]:Math.round(e.weight.imperial.split("-")[0]*0.001).toString(),
+
+            weight_Max:e.weight.metric.split("-")[1] && e.weight.metric.split("-")[1]!=="null"?e.weight.metric.split("-")[1]:Math.round(e.weight.imperial.split("-")[1]*0.001).toString(),
+
 
             life_span: e.life_span !== null ? e.life_span : 'Esperanza de vida no encontrada',
 

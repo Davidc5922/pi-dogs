@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail, deleteDog} from '../actions'
+
+import { getDetail, cleaner, cleanDog, deleteDog} from '../actions'
+
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -12,10 +14,10 @@ export default function Detail(props) {
     const { id } = useParams()
  
     useEffect(() => {
-         dispatch(getDetail(id))
-
-
-     }, [dispatch, id])
+        dispatch(getDetail(id))
+        dispatch(cleaner())
+        dispatch(cleanDog())
+    }, [dispatch, id])
 
 
 
@@ -24,9 +26,9 @@ export default function Detail(props) {
     function handleDelete(e) {
         if (id.length > 5) {
             e.preventDefault()
-           
+            dispatch(cleanDog())
             dispatch(deleteDog(id))
-            
+            dispatch(cleaner())
             alert('La raza fue eliminada')
             
         }else{
@@ -73,9 +75,9 @@ export default function Detail(props) {
                                     </ul>
 
                                     <h4 className="caracts">Altura entre: </h4>
-                                    <p>{myDog.height} a {myDog.height} Cm.</p>
+                                    <p>{myDog[0].height_Min} a {myDog[0].heigh_Max} Cm.</p>
                                     <h4 className="caracts">Peso entre:</h4>
-                                    <p>{myDog.weight} a {myDog.weight} Kg.</p>
+                                    <p>{myDog[0].weight_Min} a {myDog[0].weight_Max} Kg.</p>
                                     <h4 className="caracts">Esperanza de vida:</h4>
                                     <p className="last">{myDog[0].life_span}</p>
       
