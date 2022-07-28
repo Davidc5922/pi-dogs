@@ -43,7 +43,11 @@ function rootReducer (state = initialState,action){
             }
     
         default:
+<<<<<<< HEAD
             return state
+=======
+            return {...state}
+>>>>>>> b7b69ba346d6529aff5562b58ca857c4cff25d92
     }
 }
 
