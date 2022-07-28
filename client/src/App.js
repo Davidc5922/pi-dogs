@@ -1,5 +1,5 @@
 import './App.css';
-<<<<<<< HEAD
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import LandingPage from './components/LandingPage.jsx'
 import Home from './components/Home.jsx';
@@ -19,23 +19,7 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
-=======
-import { Route, Switch, BrowserRouter as Router, useParams } from 'react-router-dom';
-//import { Route,BrowserRouter,Routes } from "react-router-dom";
 
-// import Detail from "./components/detail.jsx"
-// import DogCreate from "./components/DogCreate.jsx"
-// import Home from "./components/Home.jsx"
-import LandingPage from "./components/LandingPage.jsx"
-
-function App() {
-  return (
-  
-  
-  <div className="App">
-    <LandingPage /> 
-    </div>
->>>>>>> b7b69ba346d6529aff5562b58ca857c4cff25d92
   );
 }
 
