@@ -13,6 +13,7 @@ export default function Home(){
 
     const dispatch = useDispatch()
     const allDogs = useSelector((state) => state.allDogs)
+    console.log(allDogs)
  
     
     useEffect(() => {
@@ -31,14 +32,16 @@ export default function Home(){
                  </li>
                   <li> <SearchBar /></li>
                 </ul>
-                {allDogs.map((e) => {
+                {
+                
+                allDogs.map((e) => {
                         return (
                             <div key={e.id} className='cardHome'>
                                 <Link to={'/home/' + e.id} style={{ textDecoration: 'none' }}>
                                     <Card
                                         name={e.name}
                                         image={e.image}
-                                        temperaments={e.temperaments}
+                                       /*  temperaments={e.temperaments} */
                                         /* weight={e.weight}
                                         height={e.height} */
                                         weight_Min={e.weight_Min}

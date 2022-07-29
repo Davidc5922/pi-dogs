@@ -3,7 +3,7 @@ const router = Router()
 
 const express = require('express')
 
-const { Dog}=require('../db')
+const { Dog,Temperament}=require('../db')
 
 const { getAllDogs }=require('../info/getAllDogs')
 const { getdbinfo }=require('../info/getdbinfo')
@@ -72,8 +72,7 @@ router.post('*', async (req, res,next) => {
         //breedGroups,
 
     } = req.body
-    let height = heightMin+"-"+heightMax
-    let weight = weightMin+"-"+weightMax
+    
     try {
        // let height=`${heightMin}-${heightMax}`
     // let weight=`${weightMin}-${weightMax}`
@@ -81,8 +80,8 @@ router.post('*', async (req, res,next) => {
         name,
         heightMin,
         heightMax,
-        height,
-        weight,
+        weightMin,
+        weightMax,
         life_span,
         image,
         temperaments,

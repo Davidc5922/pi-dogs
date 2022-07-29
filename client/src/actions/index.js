@@ -42,7 +42,7 @@ export function getDogs(name) {
 
 export function getTemperaments() {
     return async function (dispatch) {
-        let json = await axios.get('http://localhost:3001/temperament', {})
+        let json = await axios.get('http://localhost:3001/temperaments', {})
         return dispatch({
             type: GETTEMPERAMENTS,
             payload: json.data
