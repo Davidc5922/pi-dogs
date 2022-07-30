@@ -1,16 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 
-import { getDetail, cleaner, cleanDog, deleteDog} from '../actions'
+import { getDetail, deleteDog,cleanDog,cleaner} from '../actions'
 
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate,Link } from "react-router-dom";
 
 
 export default function Detail(props) {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const { id } = useParams()
  
     useEffect(() => {
@@ -29,8 +30,9 @@ export default function Detail(props) {
             dispatch(cleanDog())
             dispatch(deleteDog(id))
             dispatch(cleaner())
+            dispatch(getDetail(id))
             alert('La raza fue eliminada')
-            
+            navigate('/home')
         }else{
             alert('Solo podemos eliminar las razas creadas por usted.')
         }
@@ -59,7 +61,7 @@ export default function Detail(props) {
                             </li>
                             <li>
                                 <div>
-                                    <h4 className="caracts">Temperamentos:</h4>
+                                    {/* <h4 className="caracts">Temperamentos:</h4>
                                     <ul className="allTemps">
                                         {myDog[0].CreatedInDB ?
                                             myDog[0].temperaments.map(e => {
@@ -72,7 +74,7 @@ export default function Detail(props) {
                                                 'Esta raza no posee temperamentos'
                                         }
 
-                                    </ul>
+                                    </ul> */}
 
                                     <h4 className="caracts">Altura entre: </h4>
                                     <p>{myDog[0].height_Min} a {myDog[0].heigh_Max} Cm.</p>

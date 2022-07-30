@@ -24,20 +24,19 @@ router.get('/:raceId',async(req, res,next) => {
            
     } 
 })
-router.delete('/:Id',async(req, res,next) => {
-    const { Id } = req.params;
-    console.log(Id)
+router.delete("/:id", async function (req, res) {
+    const { id } = req.params;
     try {
-        if (Id) {
-          await Dog.destroy({
-            where: { id: Id },
-          });
-          res.send({ msg: "perro eliminado" });
-        }
-      } catch (e) {
-        console.log(e);
+      if (id) {
+        await Dog.destroy({
+          where: { id: id },
+        });
+        res.send({ msg: "Dog deleted" });
       }
-})
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
 router.get('*',async(req, res,next) => {
     try {
@@ -60,10 +59,10 @@ router.get('*',async(req, res,next) => {
 router.post('*', async (req, res,next) => {
     let {
         name,
-        heightMin,
-        heightMax,
-        weightMin,
-        weightMax,
+        height_Min,
+        height_Max,
+        weight_Min,
+        weight_Max,
         life_span,
         image,
         temperaments,
@@ -78,10 +77,10 @@ router.post('*', async (req, res,next) => {
     // let weight=`${weightMin}-${weightMax}`
     let DogCreated = await Dog.create({
         name,
-        heightMin,
-        heightMax,
-        weightMin,
-        weightMax,
+        height_Min,
+        height_Max,
+        weight_Min,
+        weight_Max,
         life_span,
         image,
         temperaments,

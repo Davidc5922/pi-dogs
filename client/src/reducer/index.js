@@ -1,4 +1,4 @@
-import {GETDOGS,GETTEMPERAMENTS,GETDETAIL,DELETEDDOG,SEARCH_FAIL,CLEANER,CLEAN_DOG  } from '../actions'
+import {GETDOGS,GETTEMPERAMENTS,GETDETAIL,DELETEDDOG,SEARCH_FAIL, CLEAN_DOG,CLEANER,Filter_Temper,FILTER_ORIGIN,SORT_BY_NAME} from '../actions'
 //
 
 const initialState = {
@@ -40,8 +40,8 @@ function rootReducer (state = initialState,action){
         case DELETEDDOG:
             return {
                 ...state,
+               
             }
-
             case CLEANER:
                 return {
                     ...state,
@@ -51,8 +51,70 @@ function rootReducer (state = initialState,action){
                 return {
                     ...state,
                     loader: true,
-                };    
-    
+                };
+
+
+
+            case Filter_Temper:
+                const allDogs = state.allDogs
+                const temperamentFiltered = action.payload === 'all' ? allDogs : allDogs.filter(e => {
+                    if (typeof (e.temperaments) === 'string') return e.temperaments.includes(action.payload)
+                    if (Array.isArray(e.temperaments)) {
+                        let temps = e.temperaments.map(e => e.name)
+                        return temps.includes(action.payload)
+                    }
+                    return true
+                })
+                return {
+                    ...state,
+                    dogs: temperamentFiltered
+                };
+
+
+
+                case FILTER_ORIGIN:
+                    let all = state.allDogs
+                    const originFiltered = action.payload === 'all' ? all : action.payload === 'created' ? all.filter(e => e.CreatedInDB) : all.filter(e => !e.CreatedInDB)
+                    return {
+                        ...state,
+                        dogs: originFiltered
+                    };
+
+
+
+                
+        case SORT_BY_NAME:
+            const sortedName = action.payload === 'ABC' ?
+                state.dogs.sort(function (a, b) {
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                        return 1;
+                    }
+                    if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                        return -1;
+                    }
+                    return 0
+                }) :
+                state.dogs.sort(function (a, b) {
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                        return -1;
+                    }
+                    if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                        return 1;
+                    }
+                    return 0
+                })
+            return {
+                ...state,
+                dogs: sortedName
+            }
+
+
+
+            return {
+                ...state,
+                dogs: sortedName
+            }
+
         default:
             return state
     }

@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LandingPage from './components/LandingPage.jsx'
 import Home from './components/Home.jsx';
 import DogCreate from './components/DogCreate.jsx'
@@ -11,12 +11,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Switch>
-          <Route exact path='/'><LandingPage /></Route>
-           <Route exact path='/home' ><Home /></Route>
-          <Route path='/dogs' ><DogCreate /></Route>
-          <Route path='/home/:id'><Detail /></Route> 
-        </Switch>
+      <Routes>
+          <Route exact path='/' element={<LandingPage />} />
+          <Route exact path='/home' element={<Home />} />
+          <Route path='/dogs' element={<DogCreate />} />
+          <Route path='/home/:id' element={<Detail />} />
+        </Routes>
       </div>
     </BrowserRouter>
 

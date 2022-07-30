@@ -8,6 +8,11 @@ export const DELETEDDOG = 'DELETEDDOG'
 export const SEARCH_FAIL = 'SEARCH_FAIL'
 export const CLEAN_DOG = 'CLEAN_DOG'
 export const CLEANER = 'CLEANER'
+export const Filter_Temper = 'Filter_Temper'
+export const FILTER_ORIGIN = 'FILTER_ORIGIN'
+export const FILTER_ALFA = 'FILTER_ALFA'
+export const SORT_BY_NAME = 'SORT_BY_NAME'
+
 
 
 //export const GET_COUNTRY= 'GET_COUNTRY'
@@ -79,7 +84,8 @@ export function postDogs(payload) {
 export function deleteDog(id) {
     return async function (dispatch) {
         try {
-            const deleteDog = await axios.delete(`http://localhost:3001/${id}`);
+            
+            const deleteDog = await axios.delete(`http://localhost:3001/dogs/${id}`);
             return dispatch({
                 type: DELETEDDOG,
                 payload: deleteDog,
@@ -104,3 +110,24 @@ export function cleaner() {
     };
 }
 
+export function FilterTemper(temper){
+
+        return {
+            type:Filter_Temper,
+            payload:temper
+        }
+    
+}
+
+export function filterorigin(payload) {
+    return {
+        type: FILTER_ORIGIN,
+        payload
+    }
+}
+export function sortByName(payload) {
+    return {
+        type: SORT_BY_NAME,
+        payload
+    }
+}

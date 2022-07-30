@@ -9,7 +9,10 @@ export default function card({image, name, temperaments, weight_Min,weight_Max,h
                 <h1>Raza</h1>
                 <p>{name}</p>
                 <h1>Temperamento</h1>
-                <p>{temperaments}</p>
+                <p>{typeof temperaments!=='object' ? temperaments :temperaments.map(e=>{return e.name}) 
+                
+                
+                }</p>
                 <h1>Peso</h1>
                 <p>{weight_Min}a{weight_Max}</p>
                 <h1>Altura</h1>
