@@ -5,9 +5,11 @@ import Paginado from './Paginado'
 import React,{useState} from 'react'
 import {  useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDogs,getTemperaments,FilterTemper,filterorigin,sortByName } from '../actions'
+import { getDogs,getTemperaments,FilterTemper,filterorigin,sortByName,sortByWeight } from '../actions'
 
 import{Link} from"react-router-dom"
+
+import '../styles/Home.css'
 
 
 export default function Home(){
@@ -63,6 +65,12 @@ export default function Home(){
         setpagina(1)
         setOrden(`Ordenado ${e.target.value}`)
     }
+    function handleweight(e) {
+        e.preventDefault();
+        dispatch(sortByWeight(e.target.value))
+        setpagina(1)
+        setOrden(`Ordenado ${e.target.value}`)
+    }
 
 
 
@@ -112,7 +120,16 @@ export default function Home(){
                             <option value="ZYX">Z - A</option>
                         </select>
                 </div>
-                {
+                <div>
+                <select onChange={e => handleweight(e)}>
+                            <option value="selected"  >Ordenado por peso</option>
+                            <option value="menor">menor a mayor</option>
+                            <option value="mayor">mayor a menor</option>
+                        </select>
+                </div>
+            </nav>
+            <div className='lista'>
+            {
                 
                 allDogs.slice(
                   (pagina-1)*porPagina,  
@@ -137,7 +154,7 @@ export default function Home(){
                             </div>
                         )
                     })}
-            </nav>
+            </div>
         </div>
     )
 }

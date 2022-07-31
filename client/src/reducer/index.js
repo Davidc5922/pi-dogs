@@ -1,4 +1,4 @@
-import {GETDOGS,GETTEMPERAMENTS,GETDETAIL,DELETEDDOG,SEARCH_FAIL, CLEAN_DOG,CLEANER,Filter_Temper,FILTER_ORIGIN,SORT_BY_NAME} from '../actions'
+import {GETDOGS,GETTEMPERAMENTS,GETDETAIL,DELETEDDOG,SEARCH_FAIL, CLEAN_DOG,CLEANER,Filter_Temper,FILTER_ORIGIN,SORT_BY_NAME,SORT_BY_WEIGHT} from '../actions'
 //
 
 const initialState = {
@@ -107,13 +107,34 @@ function rootReducer (state = initialState,action){
                 ...state,
                 dogs: sortedName
             }
-
-
-
+        case SORT_BY_WEIGHT:
+            const sortWeight = action.payload === 'menor' ?
+                state.dogs.sort(function (a, b) {
+                    if (a.weight_Min > b.weight_Min) {
+                        return 1;
+                    }
+                    if (b.weight_Min > a.weight_Min) {
+                        return -1;
+                    }
+                    return 0
+                }) :
+                state.dogs.sort(function (a, b) {
+                    if (a.weight_Max > b.weight_Max) {
+                        return -1;
+                    }
+                    if (b.weight_Max > a.weight_Max) {
+                        return 1;
+                    }
+                    return 0
+                })
             return {
                 ...state,
-                dogs: sortedName
+                dogs: sortWeight
             }
+
+
+
+          
 
         default:
             return state

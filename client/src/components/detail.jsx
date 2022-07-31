@@ -77,9 +77,9 @@ export default function Detail(props) {
                                     </ul> */}
 
                                     <h4 className="caracts">Altura entre: </h4>
-                                    <p>{myDog[0].height_Min} a {myDog[0].heigh_Max} Cm.</p>
+                                    <p>{myDog[0].height_Min}{isNaN(myDog[0].height_Min)!==true?'Cm':''} a {myDog[0].heigh_Max}{isNaN(myDog[0].heigh_Max)!==true?'Cm.':'.'}  </p>
                                     <h4 className="caracts">Peso entre:</h4>
-                                    <p>{myDog[0].weight_Min} a {myDog[0].weight_Max} Kg.</p>
+                                    <p>{myDog[0].weight_Min}{isNaN(myDog[0].weight_Min)!==true?'Kg':''} a {myDog[0].weight_Max} {isNaN(myDog[0].weight_Max)!==true?'Kg.':'.'}</p>
                                     <h4 className="caracts">Esperanza de vida:</h4>
                                     <p className="last">{myDog[0].life_span}</p>
       

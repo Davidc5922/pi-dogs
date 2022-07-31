@@ -9,8 +9,8 @@ import{Link} from"react-router-dom"
 export default function LandingPage(){
   
     return(
-        <div className='Landingpage'>
-            <Link to="/Home"><button>Home</button></Link>
+        <div className='landing'>
+            <Link to="/Home"><button hidden>/learn react/i</button><button>Home</button></Link>
          
         </div>
     )

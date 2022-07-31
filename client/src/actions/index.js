@@ -12,6 +12,7 @@ export const Filter_Temper = 'Filter_Temper'
 export const FILTER_ORIGIN = 'FILTER_ORIGIN'
 export const FILTER_ALFA = 'FILTER_ALFA'
 export const SORT_BY_NAME = 'SORT_BY_NAME'
+export const SORT_BY_WEIGHT = 'SORT_BY_WEIGHT'
 
 
 
@@ -128,6 +129,12 @@ export function filterorigin(payload) {
 export function sortByName(payload) {
     return {
         type: SORT_BY_NAME,
+        payload
+    }
+}
+export function sortByWeight(payload) {
+    return {
+        type: SORT_BY_WEIGHT,
         payload
     }
 }

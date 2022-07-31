@@ -1,23 +1,31 @@
 import React from "react";
+import '../styles/card.css'
 
 
 export default function card({image, name, temperaments, weight_Min,weight_Max,height_Min,height_Max}){
     return(
-        <>
+        <div className="content">
             <img src={image} />
-            <div>
-                <h1>Raza</h1>
-                <p>{name}</p>
+            <div className="info_dog">
+                <div className="name_temper">
+                        <div className="name">
+                        <h1>Raza</h1>
+                        <p>{name}</p>
+                        </div>  
+
+                        <div className="temper">
+
+                            <h1>Peso</h1>
+                            <p>{weight_Min}{isNaN(weight_Min)!==true?"Kg":""} a {weight_Max} {isNaN(weight_Max)!==true?"Kg":""}</p>
+                            <h1>Altura</h1>
+                            <p>{height_Min}{isNaN(height_Min)!==true?"Cm":""} a {height_Max} {isNaN(height_Max)!==true?"Cm":""}</p>
+                            
+                     </div>    
+                </div>   
                 <h1>Temperamento</h1>
-                <p>{typeof temperaments!=='object' ? temperaments :temperaments.map(e=>{return e.name}) 
-                
-                
-                }</p>
-                <h1>Peso</h1>
-                <p>{weight_Min}a{weight_Max}</p>
-                <h1>Altura</h1>
-                <p>{height_Min}a{height_Max}</p>
+                <p>{typeof temperaments!=='object' ? temperaments :temperaments.map(e=>{return e.name}) }</p>
+               
             </div>
-        </>
+        </div>
     )
 }
