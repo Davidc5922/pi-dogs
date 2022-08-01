@@ -10,22 +10,22 @@ const getapiinfo = async ()=>{
 
             name:e.name,
 
-            height_Min:e.height.metric.split("-")[0] && e.height.metric.split("-")[0]!=="NaN"&&isNaN(e.height.metric.split("-")[0])!==true?e.height.metric.split("-")[0]:(e.height.imperial.split("–")[0]&&e.height.imperial.split("-")[0]!=="NaN"&&isNaN(e.height.imperial.split("-")[0])!==true?Math.round(e.height.imperial.split("–")[0]/ 2.205).toString():'No tenemos Altura Maxima para ese Perro'),
+            height_Min:e.height.metric.split("-")[0] && e.height.metric.split("-")[0]!=="NaN"&&isNaN(e.height.metric.split("-")[0])!==true?e.height.metric.split("-")[0]:(e.height.imperial.split("–")[0]&&e.height.imperial.split("-")[0]!=="NaN"&&isNaN(e.height.imperial.split("-")[0])!==true?Math.round(e.height.imperial.split("–")[0]/ 2.205).toString():'No tenemos Altura Maxima '),
 
-            heigh_Max:e.height.metric.split("-")[1] && e.height.metric.split("-")[1]!=="NaN"&&isNaN(e.height.metric.split("-")[1])!==true?e.height.metric.split("-")[1]:(e.height.imperial.split("–")[1]&&e.height.imperial.split("-")[1]!=="NaN"&&isNaN(e.height.imperial.split("-")[1])!==true?Math.round(e.height.imperial.split("–")[1]/ 2.205).toString():'No tenemos Altura Maxima para ese Perro')
+            heigh_Max:e.height.metric.split("-")[1] && e.height.metric.split("-")[1]!=="NaN"&&isNaN(e.height.metric.split("-")[1])!==true?e.height.metric.split("-")[1]:(e.height.imperial.split("–")[1]&&e.height.imperial.split("-")[1]!=="NaN"&&isNaN(e.height.imperial.split("-")[1])!==true?Math.round(e.height.imperial.split("–")[1]/ 2.205).toString():'No tenemos Altura Maxima ')
             
             /* Math.round(e.height.imperial.split("–")[1]/ 2.205).toString() */
             
             ,
 
           
-            weight_Min:e.weight.metric.split("-")[0] && e.weight.metric.split("-")[0]!=="NaN"&&isNaN(e.weight.metric.split("-")[0])!==true?e.weight.metric.split("-")[0]:(e.weight.imperial.split("–")[0]&&e.weight.imperial.split("-")[0]!=="NaN"&&isNaN(e.weight.imperial.split("-")[0])!==true?Math.round(e.weight.imperial.split("–")[0]/ 2.205).toString():'No tenemos Peso Minimo para ese Perro')
+            weight_Min:e.weight.metric.split("-")[0] && e.weight.metric.split("-")[0]!=="NaN"&&isNaN(e.weight.metric.split("-")[0])!==true?e.weight.metric.split("-")[0]:(e.weight.imperial.split("–")[0]&&e.weight.imperial.split("-")[0]!=="NaN"&&isNaN(e.weight.imperial.split("-")[0])!==true?Math.round(e.weight.imperial.split("–")[0]/ 2.205).toString():'No tenemos Peso Minimo ')
             
             ,
 
             /* Math.round(e.weight.imperial.split("–")[0]/ 2.205).toString() */
 
-            weight_Max:e.weight.metric.split("-")[1] && e.weight.metric.split("-")[1]!=="NaN"&&isNaN(e.weight.metric.split("-")[1])!==true?e.weight.metric.split("-")[1]:(e.weight.imperial.split("–")[1]&&e.weight.imperial.split("-")[1]!=="NaN"&&isNaN(e.weight.imperial.split("-")[0])!==true?Math.round(e.weight.imperial.split("–")[1]/ 2.205).toString():'No tenemos Peso Maximo para ese Perro')
+            weight_Max:e.weight.metric.split("-")[1] && e.weight.metric.split("-")[1]!=="NaN"&&isNaN(e.weight.metric.split("-")[1])!==true?e.weight.metric.split("-")[1]:(e.weight.imperial.split("–")[1]&&e.weight.imperial.split("-")[1]!=="NaN"&&isNaN(e.weight.imperial.split("-")[0])!==true?Math.round(e.weight.imperial.split("–")[1]/ 2.205).toString():'No tenemos Peso Maximo ')
             
             
             ,

@@ -1,0 +1,47 @@
+.SearchBar{
+    margin: 5px 13px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+.input{
+    border: none;
+    background: none;
+    border-bottom: 2px solid #ff6961;
+    font-size: 20px;
+    margin: 0 2px;
+}
+.input:focus{ 
+    outline: none;
+    font-family: 'Mouse Memoirs', sans-serif;
+    width: 250px;
+}
+.input::placeholder{
+    color: #84b6f4;
+    opacity: 90%;
+    font-family: 'Mouse Memoirs', sans-serif;
+    text-align: center;
+    font-size: 25px;
+}
+/* #61f7ff */
+.fetch{
+    background: none;
+    display: flex;
+    align-items: center;
+    color: #61f7ff;
+    border: none;
+}
+.img_icono{
+    align-self: flex-end;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: #61f7ff;
+}
+.img_icono2{
+    align-self: flex-end;
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    color: #61f7ff;
+}

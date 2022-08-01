@@ -8,6 +8,8 @@ import {  useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { postDogs,getTemperaments } from '../actions'
 
+import '../styles/Nav.css'
+
 
 
 function validate(input) {
@@ -195,9 +197,15 @@ export default function DogCreate(){
    
     return(
         <div>
-             <ul>
-                  <li> <Link to='/home'><button id="home" classdog="buttonHome1">Inicio</button></Link></li>
-                </ul>
+<nav className='nav' >
+            <h1 className='wiki'>Wiki dogs</h1>
+            <ul className='nav-ul'>
+            <li> <Link to='/home'><button id="home" classdog="buttonHome1" className="button">Inicio</button></Link></li>
+            </ul>
+            </nav>
+
+    
+                
             <form onSubmit={e=>handleSubmit(e)}>
                 <div>
                     <label>Raza: </label>

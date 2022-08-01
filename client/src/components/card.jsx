@@ -5,7 +5,7 @@ import '../styles/card.css'
 export default function card({image, name, temperaments, weight_Min,weight_Max,height_Min,height_Max}){
     return(
         <div className="content">
-            <img src={image} />
+            <img src={image} className="img" />
             <div className="info_dog">
                 <div className="name_temper">
                         <div className="name">

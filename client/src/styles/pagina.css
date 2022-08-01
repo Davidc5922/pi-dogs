@@ -1,0 +1,47 @@
+.paginado{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.button_img{
+    width: 25px;
+    height: 25px;
+    padding: 5px 8px 5px 5px;
+
+}
+.button_img2{
+    width: 25px;
+    height: 25px;
+    padding: 5px 5px 5px 8px;
+}
+.buton{
+    background: #84b6f4;
+    text-align: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.num_pag{
+    border: none;
+    background: none;
+    border-bottom: 2px solid #ff6961;
+    width: 60px;
+    margin-left: 5px;
+    color: #84b6f4;
+    font-size: 20px;
+}
+.num_pag:focus{ outline: none;}
+
+
+.Num_paginas{
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 24px;
+    color: #84b6f4;
+    margin-right: 5px;
+}

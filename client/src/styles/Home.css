@@ -1,13 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Righteous&display=swap');
+
+
 body{
     padding: 0;
     margin: 0;
+    background-color: #cbcd69;
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 20px;
 }
+ul{
+    list-style: none;
+}
+.todo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.filtros{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.edit_lista{
+    display: inline-flex;
+    flex-direction: column;
+    
+    flex-wrap: wrap;
+    align-items:center;
+}
+
+
+
+
+
+
+
 .cardHome{
     display: inline-flex;
-    margin: 5px;
-    justify-content: space-around;
-    align-content: center;
+    margin: 5px auto;
 }
 .lista{
+    background: #f4c284;
     margin: 30px 50px;
+    border: 2px solid black;
+    flex-wrap: wrap;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.estilo_filtros{
+    border: none;
+    background: none;
+    margin: 0 5px;
+    font-size: 22px;
+    font-family: 'Mouse Memoirs', sans-serif;
+}
+.option_filter{
+    border: none;
+    background: none;
+    font-size: 22px;
+    font-family: 'Mouse Memoirs', sans-serif;
+}
+.box_filter{
+    background: #84b6f4;
 }

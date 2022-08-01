@@ -1,0 +1,30 @@
+.nav{
+    height: 60px;
+    width:auto;
+    background-color:#84b6f4 ;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.wiki{
+    display: inline-flex;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Mouse Memoirs', sans-serif;
+}
+
+.nav-ul{
+    display: inline-flex;
+    flex-direction: row;
+    list-style: none;
+    align-items:center;
+}
+li{
+    margin: 0 20px;
+}
+.button{
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 20px;
+    background: none;
+    border: none;
+}

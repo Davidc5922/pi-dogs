@@ -10,6 +10,7 @@ import { getDogs,getTemperaments,FilterTemper,filterorigin,sortByName,sortByWeig
 import{Link} from"react-router-dom"
 
 import '../styles/Home.css'
+import '../styles/Nav.css'
 
 
 export default function Home(){
@@ -81,53 +82,66 @@ export default function Home(){
     return(
         <div className='Home'>
             <nav className='nav' >
-                <ul>
-                <button className='elementNB' onClick={e => { handleClick(e) }}>Pagina Principal</button>
+            <h1 className='wiki'>Wiki dogs</h1>
+                <ul className='nav-ul'>
+                    
+                <button className='button' onClick={e => { handleClick(e) }}>Pagina Principal</button>
                   <li> 
                     <Link to='/dogs'>
-                    <button className="buttonHome1">Crear Perro</button>
+                    <button className="button">Crear Perro</button>
                      </Link>
                  </li>
-                  <li> <SearchBar /></li>
                 </ul>
+                </nav>
+
+                <div className='todo'>
+                
+                <div className='edit_lista'>
+                <SearchBar />
                 <Paginado  pagina={pagina} setpagina={setpagina} maximo={maximo}    />
+                
+                <div className='filtros'>
                 <div>
-                <select onChange={e => handleSelect(e)}>
-                <option key={0} value='all'>Todos los Temperamentos</option>
+                <select onChange={e => handleSelect(e)} className='estilo_filtros'>
+                <option key={0} value='all' className='box_filter'>Todos los Temperamentos</option>
                         {allTemperaments.sort(function (a, b) {
                                 if (a.name < b.name) return -1
                                 if (a.name > b.name) return 1
                                 return 0
                             }).map(temp => {
                             return (
-                                <option value={temp.name} key={temp.id}>{temp.name}</option>
+                                <option value={temp.name} key={temp.id} className='box_filter'>{temp.name}</option>
                             )
                         })}
                     </select>
 
                 </div>
                 <div>
-                <select onChange={e => handleFilterOrigin(e)}>
-                            <option value="all">Todos los Perros</option>
-                            <option value='api'>Nuestros Perros</option>
-                            <option value='created'>Tus Perros</option>
+                <select onChange={e => handleFilterOrigin(e)} className='estilo_filtros'>
+                            <option value="all" className='box_filter'>Todos los Perros</option>
+                            <option value='api' className='box_filter'>Nuestros Perros</option>
+                            <option value='created' className='box_filter'>Tus Perros</option>
                         </select>
                 </div>
                 <div>
-                <select onChange={e => handleSortByName(e)}>
-                            <option value="selected" hidden >Ordenado por Nombre</option>
-                            <option value="ABC">A - Z</option>
-                            <option value="ZYX">Z - A</option>
+                <select onChange={e => handleSortByName(e)} className='estilo_filtros'>
+                            <option value="selected" hidden className='box_filter'>Ordenado por Nombre</option>
+                            <option value="ABC" className='box_filter'>A - Z</option>
+                            <option value="ZYX" className='box_filter'>Z - A</option>
                         </select>
                 </div>
                 <div>
-                <select onChange={e => handleweight(e)}>
-                            <option value="selected"  >Ordenado por peso</option>
-                            <option value="menor">menor a mayor</option>
-                            <option value="mayor">mayor a menor</option>
+                <select onChange={e => handleweight(e)} className='estilo_filtros'>
+                            <option value="selected"  className='box_filter'>Ordenado por peso</option>
+                            <option value="menor" className='box_filter'>menor a mayor</option>
+                            <option value="mayor" className='box_filter'>mayor a menor</option>
                         </select>
                 </div>
-            </nav>
+                </div>
+
+                </div>
+                
+            
             <div className='lista'>
             {
                 
@@ -155,6 +169,7 @@ export default function Home(){
                         )
                     })}
             </div>
+        </div>
         </div>
     )
 }

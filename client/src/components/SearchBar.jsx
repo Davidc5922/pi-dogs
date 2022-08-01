@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getDogs } from "../actions";
+import '../styles/SearchBar.css'
+import icono from '../img/icono.jpg'
+import icono2 from '../img/icono2.png'
 
 
 export default function SearchBar(){
@@ -32,7 +35,14 @@ export default function SearchBar(){
     }
     
     return(
-        <>
+        <div className="SearchBar">
+            <button
+                type='submit'
+                onClick={e=> handleSubmit(e)}
+                className='fetch'
+                >
+                 <img src={icono} className='img_icono' />
+             </button>
             <input
                 type='text' 
                 placeholder='Busca tu raza favorita'
@@ -41,23 +51,17 @@ export default function SearchBar(){
                 className='input'
                 onKeyPress={e=> e.key === 'Enter' && handleSubmit(e)}
                 />
-            <button
-                type='submit'
-                onClick={e=> handleSubmit(e)}
-                className='fetch'
-                >
-                <strong>Buscar!</strong>
-                </button>
+            
             <button
                 type='submit'
                 onClick={e=> handleBack(e)}
                 className='fetch'
                 >
-                <strong>volver</strong>
+                <img src={icono2} className='img_icono2' />
                 </button>
                 
 
             
-        </>
+        </div>
     )
 }
