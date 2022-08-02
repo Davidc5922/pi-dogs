@@ -31,3 +31,14 @@
     width: 130px;
     height: 150px;
 }
+
+
+
+.loading{
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    font-size: 100px;
+}

@@ -1,0 +1,15 @@
+
+.button_Home{
+    border: 3px dashed #fff;
+    padding: 10px;
+    background: none;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    font-size: 40px;
+    font-family: 'Mouse Memoirs', sans-serif;
+}
+
+

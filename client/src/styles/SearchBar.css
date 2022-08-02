@@ -38,12 +38,14 @@
     width: 30px;
     height: 30px;
     font-size: 20px;
-    color: #61f7ff;
+    background: #61f7ff;
+    border-radius: 50%;
 }
 .img_icono2{
     align-self: flex-end;
     width: 28px;
     height: 28px;
     font-size: 20px;
-    color: #61f7ff;
+    background: #61f7ff;
+    border-radius: 50%;
 }

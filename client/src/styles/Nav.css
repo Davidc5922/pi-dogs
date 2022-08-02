@@ -20,11 +20,12 @@
     align-items:center;
 }
 li{
-    margin: 0 20px;
+    margin: 0 10px;
 }
 .button{
     font-family: 'Mouse Memoirs', sans-serif;
     font-size: 20px;
     background: none;
     border: none;
+    margin: 0 10px;
 }

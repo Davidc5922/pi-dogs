@@ -13,6 +13,8 @@ import '../styles/DogCreate.css'
 
 
 
+
+
 function validate(input) {
     let errors = {}
     if (!input.name) {
@@ -90,20 +92,15 @@ function validate(input) {
     else if (isNaN(parseInt(input.life_span))) {
         errors.life_span = 'Por favor, colocalo en numeros para que pueda entenderte'
     }
+   
 
-
-    /*else if (!isNaN(input.bredFor)){
-        errors.bredFor = 'Solo se admite texto'
-        
-    }
-    */
     return errors
 }
 
 export default function DogCreate(){
     const allTemperaments = useSelector((state) => state.Temperaments)
     
-    const [temper,settemper]=useState("")
+   
     const [err, setErr] = useState({})
     const [dog, setdog] = useState({
         name:"", 
@@ -131,15 +128,31 @@ export default function DogCreate(){
     }))
     }
    
-  
+    function handleDeleteTemperament(e) {
+        console.log(e)
+
+        setdog({
+            ...dog,
+            temperaments: dog.temperaments.filter(temp => temp !== e)
+        })
+    }  
+
+    function handleSelect(e) {
+        e.preventDefault()
+        if (!dog.temperaments.includes(e.target.value)) {
+            setdog({
+                ...dog,
+                temperaments: [...dog.temperaments, e.target.value]
+            })
+            console.log(dog)
+        }
+    }
 
     
     function handleSubmit(e){
         
-        if (!Object.getOwnPropertyNames(err).length && dog.name && dog.height_Min && dog.height_Max && dog.weight_Min && dog.weight_Max && dog.life_span /*&& input.temperaments.length*/ /*&& input.origins.length*/) {
-       /* if(!dog.image){
-            setdog({...dog,image:"https://thumbs.dreamstime.com/b/perro-del-signo-de-interrogaci%C3%B3n-104207739.jpg"})
-        } */
+        if (!Object.getOwnPropertyNames(err).length && dog.name && dog.height_Min && dog.height_Max && dog.weight_Min && dog.weight_Max && dog.life_span ) {
+       
         e.preventDefault()
         console.log(dog)
         dispatch(postDogs(dog))
@@ -159,39 +172,12 @@ export default function DogCreate(){
 
     } 
 
-    function handleDeleteTemperament(e) {
-        e.preventDefault()
-        setdog({
-            ...dog,
-            temperaments: dog.temperaments.filter(temp => temp !== e)
-        })
-    }
-    function handleSelect(e) {
-        e.preventDefault()
-        if (!dog.temperaments.includes(e.target.value)) {
-            setdog({
-                ...dog,
-                temperaments: [...dog.temperaments, e.target.value]
-            })
-            console.log(dog)
-        }
-    }
-    function handletemper(e){
-        e.preventDefault()
-        settemper(e.target.value)
-        console.log(temper)
-    }
-    function handlenewtemper(e){
-        e.preventDefault()
-        if (!dog.temperaments.includes(temper)) {
-            setdog({
-                ...dog,
-                temperaments: [...dog.temperaments, temper]
-            })
-            console.log(dog)
-        }
-      
-    }
+    
+    
+
+
+
+   
 
 
 
@@ -263,41 +249,42 @@ export default function DogCreate(){
                     )}
                     <label>imagen</label>
                 </div>
-                
-                
+               
                 <div >
-                    <select onChange={e => handleSelect(e) } className="temperamentos">
-                        <option value='selected' hidden  className="Temperamentos_option">Temperamentos</option>
-                        {allTemperaments.map(temp => {
+                    <select onChange={e => handleSelect(e)} className="List_temper">
+                        <option value='selected' hidden className='List_temper_option'>Temperamentos</option>
+                        {allTemperaments.sort(function (a, b) {
+                            if (a.name < b.name) return -1
+                            if (a.name > b.name) return 1
+                            return 0
+                        }).map(temp => {
                             return (
-                                <option value={temp.name} key={temp.id}  className="temperamentos_option">{temp.name}</option>
+                                <option value={temp.name} key={temp.id} className='List_temper_option'>{temp.name}</option>
                             )
                         })}
                     </select>
+                    <div className='all_Temper'>
                     {dog.temperaments.map(e => {
                         return (
                             <ul classdog="allSelecction" key={e}>
                                 <li>
-                                    <p classdog="selecction"><strong>{e}</strong></p>
-                                    <button onClick={(e) => handleDeleteTemperament(e)} className="x">X</button>
+                                <button onClick={() => {handleDeleteTemperament(e)}} className="x">X</button>
+                                    <p classdog="selecction" className='Name_Temperament'>{e}</p>
+                                    
                                 </li>
                             </ul>
                         )
                     })}
+                    </div>
+                    
                     <div>
+                    {/*  */}
                     
-                    
-                </div>
-                <div className='Perro'>
-                    <input value={temper} type="text" onChange={e=>handletemper(e)} autoComplete='off'></input>
-                    <label>crea un temperamento <button onClick={e=>{handlenewtemper(e)}} className="button_NuevoTemperamento">+</button></label>
-                
                 </div>
                 
+                
                 </div>
-                {/* <div className='button'>
-
-                </div> */}
+          
                 
                 <button type='submit' className='button'>
                     <span></span>

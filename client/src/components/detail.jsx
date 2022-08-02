@@ -65,7 +65,7 @@ export default function Detail(props) {
         myDog.length > 0 ?
             <div className="deatil">
                 <div >
-                    <img src={myDog[0].image} alt={myDog[0].name} className='image' />
+                    <img src={myDog[0].image?myDog[0].image:"https://thumbs.dreamstime.com/b/perro-del-signo-de-interrogaci%C3%B3n-104207739.jpg"} alt={myDog[0].name} className='image' />
                 </div>
                 <div className="datos">
             
@@ -101,7 +101,7 @@ export default function Detail(props) {
                 
             </div> :
             <div className="loading">
-                <h1><strong>Cargando...</strong></h1>
+                <h1 className="loading">Cargando...</h1>
             </div>
         }
 
