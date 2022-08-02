@@ -1,5 +1,7 @@
 .deatil{
-    background: #f4c284;
+    background: rgba(0, 0, 0,.5);
+
+    color: #84b6f4;
     /* margin: 30px 50px; */
     margin-top: 50px;
     margin-left: 30%;

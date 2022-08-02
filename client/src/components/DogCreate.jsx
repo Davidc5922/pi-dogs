@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { postDogs,getTemperaments } from '../actions'
 
 import '../styles/Nav.css'
+import '../styles/DogCreate.css'
 
 
 
@@ -136,9 +137,9 @@ export default function DogCreate(){
     function handleSubmit(e){
         
         if (!Object.getOwnPropertyNames(err).length && dog.name && dog.height_Min && dog.height_Max && dog.weight_Min && dog.weight_Max && dog.life_span /*&& input.temperaments.length*/ /*&& input.origins.length*/) {
-       if(!dog.image){
+       /* if(!dog.image){
             setdog({...dog,image:"https://thumbs.dreamstime.com/b/perro-del-signo-de-interrogaci%C3%B3n-104207739.jpg"})
-        }
+        } */
         e.preventDefault()
         console.log(dog)
         dispatch(postDogs(dog))
@@ -201,69 +202,75 @@ export default function DogCreate(){
             <h1 className='wiki'>Wiki dogs</h1>
             <ul className='nav-ul'>
             <li> <Link to='/home'><button id="home" classdog="buttonHome1" className="button">Inicio</button></Link></li>
-            </ul>
+             </ul>
             </nav>
 
-    
-                
+            <div className='contenedor'>
+                <h2>Crear Perro</h2>
             <form onSubmit={e=>handleSubmit(e)}>
-                <div>
-                    <label>Raza: </label>
+                <div className='Perro'>
                     <input  value={dog.name} name="name" onChange={e=>handleonChange(e)} autoComplete='off'></input>
                     {err.name && (
                         <p className="error">{err.name}</p>
                     )}
+                    <label>Raza</label>
                 </div>
-                <div>
-                    <label>heightMin: </label>
-                    <input  value={dog.height_Min} name="height_Min" type="text" onChange={e=>handleonChange(e)}></input> 
+                <div className='Perro'>
+                    
+                    <input  value={dog.height_Min} name="height_Min" type="text" onChange={e=>handleonChange(e)} autoComplete='off'></input> 
                     {err.height_Min && (
                         <p className="error">{err.height_Min}</p>
                     )}  
+                    <label>altura minima </label>
                 </div>
-                <div>
-                    <label>heightMax: </label>
-                    <input value={dog.height_Max}  name="height_Max" type="text" onChange={e=>handleonChange(e)}></input>
+                <div className='Perro'>
+                    
+                    <input value={dog.height_Max}  name="height_Max" type="text" onChange={e=>handleonChange(e)} autoComplete='off'></input>
                     {err.height_Max && (
                         <p className="error">{err.height_Max}</p>
                     )}
+                    <label>altura maxima</label>
                 </div>
-                <div>
-                    <label>weightMin: </label>
-                    <input  value={dog.weight_Min}  name="weight_Min" type="text" onChange={e=>handleonChange(e)}></input>
+                <div className='Perro'>
+                    
+                    <input  value={dog.weight_Min}  name="weight_Min" type="text" onChange={e=>handleonChange(e)} autoComplete='off'></input>
                     {err.weight_Min && (
                         <p className="error">{err.weight_Min}</p>
                     )}
+                    <label>peso minimo </label>
                 </div>
-                <div>
-                    <label>weightMax: </label>
-                    <input  value={dog.weight_Max} name="weight_Max" type="text" onChange={e=>handleonChange(e)}></input>
+                <div className='Perro'>
+                    
+                    <input  value={dog.weight_Max} name="weight_Max" type="text" onChange={e=>handleonChange(e)} autoComplete='off'></input>
                     {err.weight_Max && (
                         <p className="error">{err.weight_Max}</p>
                     )}
+                    <label>peso maximo </label>
                 </div>
-                <div>
-                    <label>life_span:</label>
-                    <input value={dog.life_span} name="life_span" type="text" onChange={e=>handleonChange(e)}></input>
+                <div className='Perro'>
+                    
+                    <input value={dog.life_span} name="life_span" type="text" onChange={e=>handleonChange(e)} autoComplete='off'></input>
                     {err.life_span && (
                         <p className="error">{err.life_span}</p>
                     )}
+                    <label>años de vida</label>
                 </div>
-                <div>
-                    <label>image:</label>
-                    <input value={dog.image} name="image" type="text" onChange={e=>handleonChange(e)}></input>
+                <div className='Perro'>
+                    
+                    <input value={dog.image} name="image" type="text" onChange={e=>handleonChange(e)} autoComplete='off'></input>
                     {err.name && (
                         <p className="error">{err.name}</p>
                     )}
+                    <label>imagen</label>
                 </div>
                 
                 
-                <div>
-                    <select onChange={e => handleSelect(e)}>
-                        <option value='selected' hidden >Temperamentos</option>
+                <div >
+                    <select onChange={e => handleSelect(e) } className="temperamentos">
+                        <option value='selected' hidden  className="Temperamentos_option">Temperamentos</option>
                         {allTemperaments.map(temp => {
                             return (
-                                <option value={temp.name} key={temp.id}>{temp.name}</option>
+                                <option value={temp.name} key={temp.id}  className="temperamentos_option">{temp.name}</option>
                             )
                         })}
                     </select>
@@ -272,21 +279,36 @@ export default function DogCreate(){
                             <ul classdog="allSelecction" key={e}>
                                 <li>
                                     <p classdog="selecction"><strong>{e}</strong></p>
-                                    <button onClick={() => handleDeleteTemperament(e)} classdog='x'>X</button>
+                                    <button onClick={(e) => handleDeleteTemperament(e)} className="x">X</button>
                                 </li>
                             </ul>
                         )
                     })}
                     <div>
-                    <label>crea un temperamento:</label>
-                    <input value={temper} type="text" onChange={e=>handletemper(e)}></input>
-                    <button onClick={e=>{handlenewtemper(e)}}>+</button>
-                    </div>
+                    
+                    
+                </div>
+                <div className='Perro'>
+                    <input value={temper} type="text" onChange={e=>handletemper(e)} autoComplete='off'></input>
+                    <label>crea un temperamento <button onClick={e=>{handlenewtemper(e)}} className="button_NuevoTemperamento">+</button></label>
                 
                 </div>
                 
-                <button type='submit'>Create Product</button>
+                </div>
+                {/* <div className='button'>
+
+                </div> */}
+                
+                <button type='submit' className='button'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>            
+                    Create Product</button>
              </form>
+            </div>
+                
+            
         </div>
     )
 }

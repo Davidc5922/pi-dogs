@@ -68,7 +68,7 @@ export default function Detail(props) {
                     <img src={myDog[0].image} alt={myDog[0].name} className='image' />
                 </div>
                 <div className="datos">
-                <img src={img_dog1} alt="" className="img_ico"/>
+            
                 <div>
                     
                     <h4 >{myDog[0].name}</h4>
@@ -96,7 +96,6 @@ export default function Detail(props) {
 
                     </ul>
                 </div>
-                <img src={img_dog2} alt="" className="img_ico"/>
                 </div>
  
                 
